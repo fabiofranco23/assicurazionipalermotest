@@ -1,0 +1,245 @@
+/* Page-specific CSS: info-utili */
+/* === FIX OVERFLOW MOBILE === */
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;margin-left:8px}
+.ham span{display:block;width:22px;height:2px;background:#1e3a6e;border-radius:2px;transition:all .3s}
+.mob-nav{display:none;flex-direction:column;background:var(--white);border-top:1px solid var(--border);padding:8px 20px 16px}
+.mob-nav a{padding:11px 0;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--text);text-decoration:none;border-bottom:1px solid var(--border)}
+.mob-nav a:last-child{border:none}
+  .main-nav{display:none}
+  .ham{display:flex}
+   INFO UTILI — stile ValoreUnipol
+/* Hero compatto premium */
+.iu-hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 75%, #1e3a6e 100%);
+  padding: 52px 0 44px;
+  position: relative;
+  overflow: hidden;
+.iu-hero::before {
+  content: '';
+  position: absolute;
+  right: -60px; top: -60px;
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,166,35,.1) 0%, transparent 70%);
+  pointer-events: none;
+.iu-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(to right, transparent, #f5a623 30%, #f5a623 70%, transparent);
+.iu-hero-in {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 28px;
+  position: relative; z-index: 1;
+.iu-breadcrumb {
+  font-size: .7rem; color: rgba(255,255,255,.45);
+  text-transform: uppercase; letter-spacing: .1em; margin-bottom: 14px;
+.iu-breadcrumb a { color: rgba(255,255,255,.45); text-decoration: none; }
+.iu-hero h1 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700; color: #fff;
+  text-transform: uppercase; letter-spacing: .03em; margin-bottom: 8px;
+.iu-hero .iu-sub {
+  font-size: .9rem; color: rgba(255,255,255,.7);
+  max-width: 520px; line-height: 1.65; margin: 0;
+/* Layout generale */
+.iu-wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+.iu-block { padding: 52px 0; }
+.iu-block.alt { background: #f4f7fb; }
+.iu-block.dark { background: #1e3a6e; }
+/* Titoli sezione — stile ValoreUnipol */
+.iu-stitle {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1.05rem; font-weight: 700;
+  color: #1e3a6e; text-transform: uppercase;
+  letter-spacing: .08em; margin-bottom: 24px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f5a623;
+  display: inline-block;
+.iu-block.dark .iu-stitle { color: #fff; border-bottom-color: rgba(255,255,255,.3); }
+/* ── NUMERI — layout a lista verticale stile ValoreUnipol ── */
+.iu-numeri-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid #dde3ef;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+.iu-num-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px 22px;
+  border-bottom: 1px solid #dde3ef;
+  border-right: 1px solid #dde3ef;
+  transition: background .15s;
+.iu-num-item:hover { background: #f8faff; }
+.iu-num-item:nth-child(even) { border-right: none; }
+.iu-num-item:nth-last-child(-n+2) { border-bottom: none; }
+.iu-num-icon {
+  width: 38px; height: 38px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+.iu-num-icon svg { width: 18px; height: 18px; fill: none; stroke-width: 1.8; }
+.iu-num-label {
+  font-size: .68rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .09em; color: #9ca3af; margin-bottom: 4px;
+.iu-num-val {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1.15rem; font-weight: 700; line-height: 1.15;
+  margin-bottom: 3px;
+.iu-num-val a { text-decoration: none; transition: opacity .15s; }
+.iu-num-val a:hover { opacity: .8; }
+.iu-num-val a + a { display: block; font-size: .92rem; margin-top: 2px; }
+.iu-num-desc { font-size: .74rem; color: #6b7280; line-height: 1.5; }
+/* colori per tipo */
+.iu-ni-blue .iu-num-icon { background: #eef2ff; }
+.iu-ni-blue .iu-num-icon svg { stroke: #1e3a6e; }
+.iu-ni-blue .iu-num-val a { color: #1e3a6e; }
+.iu-ni-orange .iu-num-icon { background: #fff3e8; }
+.iu-ni-orange .iu-num-icon svg { stroke: #d35400; }
+.iu-ni-orange .iu-num-val a { color: #d35400; }
+.iu-ni-green .iu-num-icon { background: #ecfdf5; }
+.iu-ni-green .iu-num-icon svg { stroke: #27ae60; }
+.iu-ni-green .iu-num-val a { color: #27ae60; }
+/* ── DOCUMENTI — card download stile ValoreUnipol ── */
+.iu-doc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+.iu-doc-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 22px 18px;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; text-decoration: none; color: inherit;
+  transition: all .2s; gap: 12px;
+  box-shadow: 0 1px 6px rgba(0,0,0,.05);
+.iu-doc-card:hover {
+  border-color: #1e3a6e;
+  box-shadow: 0 4px 18px rgba(30,58,110,.12);
+  transform: translateY(-2px);
+.iu-doc-icon {
+  width: 52px; height: 52px; border-radius: 10px;
+  background: #eef2ff;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+.iu-doc-icon svg { width: 24px; height: 24px; stroke: #1e3a6e; fill: none; stroke-width: 1.7; }
+.iu-doc-title {
+  font-size: .82rem; font-weight: 700; color: #1e3a6e;
+  line-height: 1.35;
+.iu-doc-dl {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: .7rem; font-weight: 700; color: #f5a623;
+  text-transform: uppercase; letter-spacing: .07em; margin-top: auto;
+.iu-doc-dl svg { width: 13px; height: 13px; stroke: #f5a623; fill: none; stroke-width: 2.5; }
+/* ── LINK UTILI ── */
+.iu-link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+.iu-link-item {
+  display: flex; align-items: center; gap: 10px;
+  background: #fff; border-radius: 8px;
+  padding: 12px 15px;
+  text-decoration: none; color: #1e3a6e;
+  font-size: .82rem; font-weight: 600;
+  border: 1px solid #e5e7eb;
+  transition: all .18s;
+.iu-link-item:hover { border-color: #1e3a6e; background: #f4f7fb; }
+.iu-link-item::before { content: '→'; color: #f5a623; font-weight: 700; flex-shrink: 0; }
+/* ── APP BANNER ── */
+.iu-app {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px;
+  background: linear-gradient(135deg, #1e3a6e, #2a5298);
+  border-radius: 12px; padding: 28px 32px;
+.iu-app h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1.05rem; font-weight: 700; color: #fff;
+  text-transform: uppercase; margin-bottom: 6px;
+.iu-app p { font-size: .82rem; color: rgba(255,255,255,.75); line-height: 1.6; max-width: 360px; margin: 0; }
+.iu-app-btns { display: flex; gap: 8px; flex-shrink: 0; }
+.iu-app-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,.1); border: 1.5px solid rgba(255,255,255,.3);
+  color: #fff; padding: 9px 16px; border-radius: 6px;
+  text-decoration: none; font-size: .75rem; font-weight: 700;
+  white-space: nowrap; transition: background .2s;
+.iu-app-btn:hover { background: rgba(255,255,255,.18); }
+.iu-app-btn svg { width: 16px; height: 16px; fill: #fff; flex-shrink: 0; }
+/* ── FORM CONTATTI ── */
+.iu-form-wrap {
+  display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px;
+  align-items: start;
+.iu-form-info h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1.3rem; font-weight: 700; color: #fff;
+  text-transform: uppercase; margin-bottom: 12px;
+.iu-form-info p { font-size: .86rem; color: rgba(255,255,255,.72); line-height: 1.75; margin-bottom: 16px; }
+.iu-form-info .fi-row {
+  display: flex; align-items: center; gap: 10px;
+  font-size: .82rem; color: rgba(255,255,255,.7); margin-bottom: 9px;
+.iu-form-info .fi-row svg { width: 15px; height: 15px; stroke: #f5a623; fill: none; stroke-width: 2; flex-shrink: 0; }
+.iu-form-info .fi-row a { color: rgba(255,255,255,.85); text-decoration: none; font-weight: 600; }
+.iu-form-box {
+  background: #fff; border-radius: 12px; padding: 28px 26px;
+.iu-form-box h4 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: .95rem; font-weight: 700; color: #1e3a6e;
+  text-transform: uppercase; margin-bottom: 4px;
+.iu-form-box .iu-form-sub { font-size: .75rem; color: #9ca3af; margin-bottom: 18px; }
+.iu-cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.iu-cf-group { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+.iu-cf-group label {
+  font-size: .68rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .07em; color: #374151;
+.iu-cf-group input, .iu-cf-group textarea, .iu-cf-group select {
+  border: 1.5px solid #dde3ef; border-radius: 6px;
+  padding: 10px 13px; font-size: .84rem;
+  font-family: 'Roboto', sans-serif; color: #1a1a2e;
+  background: #f9fafb; transition: border .2s;
+.iu-cf-group input:focus, .iu-cf-group textarea:focus, .iu-cf-group select:focus {
+  border-color: #1e3a6e; outline: none; background: #fff;
+.iu-cf-group textarea { min-height: 80px; resize: vertical; }
+.iu-cf-privacy {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: .75rem; color: #6b7280; line-height: 1.5; margin-bottom: 16px;
+.iu-cf-privacy a { color: #1e3a6e; font-weight: 600; }
+.iu-submit {
+  width: 100%; background: #f5a623; color: #1e3a6e;
+  font-weight: 700; font-size: .8rem; text-transform: uppercase;
+  letter-spacing: .08em; border: none; border-radius: 6px;
+  padding: 13px 20px; cursor: pointer; transition: all .22s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+.iu-submit:hover { background: #e5941e; transform: translateY(-1px); }
+/* ── RESPONSIVE ── */
+@media(max-width: 900px) {
+  .iu-numeri-cols { grid-template-columns: 1fr; }
+  .iu-num-item { border-right: none; }
+  .iu-num-item:nth-last-child(-n+2) { border-bottom: 1px solid #dde3ef; }
+  .iu-num-item:last-child { border-bottom: none; }
+  .iu-doc-grid { grid-template-columns: repeat(2, 1fr); }
+  .iu-form-wrap { grid-template-columns: 1fr; gap: 24px; }
+  .iu-app { flex-direction: column; gap: 16px; padding: 20px; }
+  .iu-app-btns { width: 100%; }
+@media(max-width: 600px) {
+  .iu-hero { padding: 32px 0 28px; }
+  .iu-block { padding: 36px 0; }
+  .iu-wrap { padding: 0 16px; }
+  .iu-doc-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .iu-cf-row { grid-template-columns: 1fr; }
+  .iu-stitle { font-size: .88rem; }
+/* ══ END INFO UTILI ══ */
+  .logo-main{height:34px!important}
+  .logo-unipol{height:28px!important;width:auto!important}
+  .logo-unisalute{height:28px!important;width:auto!important}
+  .logo-main{height:28px!important}
+  .logo-unipol{height:24px!important;width:auto!important}
+  .logo-unisalute{height:24px!important;width:auto!important}

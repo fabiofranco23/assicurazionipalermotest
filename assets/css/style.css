@@ -1660,3 +1660,117 @@ header{z-index:400!important;position:sticky!important;top:0}
   .chi-siamo-text h2{font-size:1.4rem}
   .chi-siamo-img img{max-height:240px}
 }
+
+
+/* ══ CHI SIAMO – PILLS & BADGE ══════════════════════════════════════════ */
+.chi-siamo-section{padding:56px 0}
+.cs-pills{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 22px}
+.cs-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.78rem;font-weight:600;color:#1e3a6e;
+  background:#eef3fb;border:1px solid #c5d6e8;
+  border-radius:20px;padding:6px 14px;
+  transition:background .2s,border-color .2s,transform .15s;
+  cursor:default;
+}
+.cs-pill:hover{background:#dce8f5;border-color:#1e3a6e;transform:translateY(-1px)}
+.cs-pill svg{stroke:#1e3a6e;flex-shrink:0}
+
+/* floating badge on photo */
+.chi-siamo-img{position:relative}
+.cs-img-badge{
+  position:absolute;top:-14px;left:-18px;z-index:3;
+  display:flex;align-items:center;gap:7px;
+  background:#fff;border-radius:8px;
+  padding:8px 14px;
+  box-shadow:0 4px 20px rgba(30,58,110,.18);
+  font-size:.78rem;font-weight:700;color:#1e3a6e;
+  white-space:nowrap;
+  border-left:3px solid #f5a623;
+}
+.cs-img-badge svg{flex-shrink:0}
+.chi-siamo-img img{
+  border-radius:14px;
+  box-shadow:0 12px 48px rgba(30,58,110,.18);
+  max-height:440px;
+  transition:transform .4s;
+}
+.chi-siamo-img:hover img{transform:scale(1.025)}
+
+/* ══ NUMERI – WHITE BG + ICONS ══════════════════════════════════════════ */
+.numeri-white{background:#fff;border-top:1px solid #e8eef8;border-bottom:1px solid #e8eef8}
+.numero-icon{
+  margin-bottom:10px;
+  display:flex;justify-content:center;
+}
+
+/* ══ INFO STRIP V2 (product strip) ══════════════════════════════════════ */
+.info-strip-v2{
+  background:linear-gradient(135deg,#1e3a6e 0%,#162f58 100%);
+  padding:40px 0;
+  text-align:center;
+}
+.info-strip-v2 .info-strip-in h2{
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:1.6rem;font-weight:800;
+  color:#fff;text-transform:uppercase;
+  letter-spacing:.04em;margin-bottom:8px;
+}
+.info-strip-v2 .info-strip-in p{
+  font-size:.92rem;color:rgba(255,255,255,.72);
+  max-width:580px;margin:0 auto;line-height:1.65;
+}
+
+/* ══ WHATSAPP BUTTON IN CONTATTI ══════════════════════════════════════════ */
+.wa-btn-cont{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#25d366;color:#fff;
+  font-weight:700;font-size:.86rem;
+  text-transform:uppercase;letter-spacing:.06em;
+  padding:13px 22px;border-radius:8px;
+  text-decoration:none;margin-top:18px;
+  transition:background .2s,transform .15s;
+}
+.wa-btn-cont:hover{background:#1ebe5d;transform:translateY(-1px)}
+.wa-btn-cont svg{fill:currentColor;flex-shrink:0}
+
+/* ══ VALORI – IMPROVED HOVER ══════════════════════════════════════════════ */
+.valori-hp-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 16px 40px rgba(0,0,0,.3),0 0 0 1px #f5a623;
+  border-color:#f5a623;
+  background:rgba(255,255,255,.13);
+}
+.valori-hp-card{min-height:auto;padding:24px 20px}
+
+/* ══ RECENSIONI – MOBILE SLIDER ══════════════════════════════════════════ */
+@media(max-width:768px){
+  .rec-slider{
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    gap:14px;
+    padding-bottom:12px;
+    scrollbar-width:none;
+  }
+  .rec-slider::-webkit-scrollbar{display:none}
+  .rec-slider .rec-card{
+    flex:0 0 88vw;max-width:340px;
+    scroll-snap-align:center;
+  }
+}
+
+/* ══ BADGE MOBILE POSITIONING ══════════════════════════════════════════ */
+@media(max-width:768px){
+  .cs-img-badge{left:8px;top:-12px;font-size:.72rem;padding:6px 11px}
+  .chi-siamo-img img{max-height:280px}
+  .cs-pills{gap:6px}
+  .cs-pill{font-size:.74rem;padding:5px 11px}
+  .wa-btn-cont{width:100%;justify-content:center}
+  .info-strip-v2{padding:28px 0}
+  .info-strip-v2 .info-strip-in h2{font-size:1.25rem}
+}
+@media(max-width:480px){
+  .cs-img-badge{position:relative;top:auto;left:auto;display:inline-flex;margin-bottom:12px}
+}

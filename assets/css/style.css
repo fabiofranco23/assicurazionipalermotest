@@ -1311,8 +1311,8 @@ header{z-index:400!important;position:sticky!important;top:0}
 .mnv-dropdown-toggle:hover,.mnv-dropdown-toggle.open{background:rgba(255,255,255,.06);color:#f5a623}
 .mnv-dropdown-toggle .arr{transition:transform .25s}
 .mnv-dropdown-toggle.open .arr{transform:rotate(180deg)}
-.mnv-dropdown-body{display:none;background:rgba(0,0,0,.2)}
-.mnv-dropdown-body.open{display:block}
+.mnv-dropdown-body{display:block;max-height:0;overflow:hidden;opacity:0;background:rgba(0,0,0,.2);transition:max-height .28s ease,opacity .22s ease}
+.mnv-dropdown-body.open{max-height:400px;opacity:1}
 .mnv-dropdown-body a{display:flex;align-items:center;justify-content:space-between;padding:11px 24px 11px 36px;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.85);text-decoration:none;letter-spacing:.04em;border-bottom:1px solid rgba(255,255,255,.05);transition:background .15s,color .15s;font-family:'Roboto',sans-serif}
 .mnv-dropdown-body a:hover{background:rgba(255,255,255,.05);color:#f5a623}
 .mnv-dropdown-body a:last-child{border-bottom:none}
@@ -1342,8 +1342,8 @@ header{z-index:400!important;position:sticky!important;top:0}
 .mnv-dropdown-toggle:hover,.mnv-dropdown-toggle.open{background:rgba(255,255,255,.06);color:#f5a623}
 .mnv-dropdown-toggle svg{transition:transform .25s;flex-shrink:0}
 .mnv-dropdown-toggle.open svg{transform:rotate(180deg)}
-.mnv-dropdown-body{display:none;background:rgba(0,0,0,.15)}
-.mnv-dropdown-body.open{display:block}
+.mnv-dropdown-body{display:block;max-height:0;overflow:hidden;opacity:0;background:rgba(0,0,0,.15);transition:max-height .28s ease,opacity .22s ease}
+.mnv-dropdown-body.open{max-height:400px;opacity:1}
 .mnv-dropdown-body a{display:flex;align-items:center;justify-content:space-between;padding:11px 24px 11px 36px;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.82);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);transition:color .15s}
 .mnv-dropdown-body a:last-child{border-bottom:none}
 .mnv-dropdown-body a:hover{color:#f5a623}
@@ -1664,14 +1664,19 @@ header{z-index:400!important;position:sticky!important;top:0}
 
 /* ══ CHI SIAMO – PILLS & BADGE ══════════════════════════════════════════ */
 .chi-siamo-section{padding:56px 0}
-.cs-pills{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 22px}
+.cs-pills{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px 10px;
+  margin:18px 0 20px;
+}
 .cs-pill{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:.78rem;font-weight:600;color:#1e3a6e;
+  display:flex;align-items:center;gap:6px;
+  font-size:.77rem;font-weight:600;color:#1e3a6e;
   background:#eef3fb;border:1px solid #c5d6e8;
-  border-radius:20px;padding:6px 14px;
-  transition:background .2s,border-color .2s,transform .15s;
-  cursor:default;
+  border-radius:6px;padding:8px 12px;
+  transition:background .2s,border-color .2s;
+  cursor:default;white-space:nowrap;
 }
 .cs-pill:hover{background:#dce8f5;border-color:#1e3a6e;transform:translateY(-1px)}
 .cs-pill svg{stroke:#1e3a6e;flex-shrink:0}
@@ -1773,4 +1778,230 @@ header{z-index:400!important;position:sticky!important;top:0}
 }
 @media(max-width:480px){
   .cs-img-badge{position:relative;top:auto;left:auto;display:inline-flex;margin-bottom:12px}
+}
+
+
+/* ══ CHI SIAMO – BUTTONS & 4th PILL ════════════════════════════════════ */
+.cs-btns{
+  display:flex;gap:12px;flex-wrap:wrap;
+  margin-top:16px;align-items:stretch;
+}
+.cs-btns .cs-btn,.cs-btns .cs-btn-outline{margin-top:0}
+.cs-btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;color:#1e3a6e;
+  border:2px solid #1e3a6e;
+  font-weight:700;font-size:.84rem;
+  text-transform:uppercase;letter-spacing:.07em;
+  padding:13px 24px;border-radius:6px;
+  text-decoration:none;
+  box-shadow:0 2px 8px rgba(30,58,110,.1);
+  transition:background .2s,color .2s,transform .15s,box-shadow .2s;
+}
+.cs-btn-outline:hover{background:#1e3a6e;color:#fff;transform:translateY(-1px);box-shadow:0 6px 20px rgba(30,58,110,.22)}
+.cs-btn-outline svg{stroke:currentColor;fill:none}
+@media(max-width:600px){
+  .cs-btns{flex-direction:column}
+  .cs-btn,.cs-btn-outline{width:100%;justify-content:center}
+}
+
+/* ══ CONTATTI – PREMIUM TITLE ══════════════════════════════════════════ */
+.cont-title-block{margin-bottom:22px}
+.cont-title-tag{
+  font-size:.68rem;font-weight:700;color:#f5a623;
+  text-transform:uppercase;letter-spacing:.15em;margin-bottom:6px;
+}
+.cont-title-block h2{
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:1.8rem;font-weight:800;
+  color:#1e3a6e;text-transform:uppercase;
+  letter-spacing:.04em;margin:0 0 10px;
+}
+.cont-title-line{
+  width:48px;height:3px;
+  background:#f5a623;border-radius:2px;
+}
+
+/* ══ CONTATTI – LOGOS ROW ══════════════════════════════════════════════ */
+.cont-logos-wrap{
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:20px;padding-bottom:18px;
+  border-bottom:1px solid #e8eef8;
+}
+.cont-logo-img{height:36px;width:auto;object-fit:contain}
+.cont-logo-sep{width:1px;height:28px;background:#dde3ef}
+
+/* ══ CONTATTI – MAP ════════════════════════════════════════════════════ */
+.cont-map-wrap{
+  margin:16px 0;border-radius:10px;overflow:hidden;
+  box-shadow:0 3px 14px rgba(0,0,0,.12);
+}
+/* Hide map on mobile */
+@media(max-width:768px){
+  .cont-map-wrap{display:none}
+}
+
+/* ══ CONTATTI – OVERALL LAYOUT IMPROVEMENTS ════════════════════════════ */
+@media(min-width:769px){
+  .cont-in{
+    align-items:start;
+    gap:40px;
+  }
+  .form-panel{
+    padding:28px 26px;
+  }
+}
+@media(max-width:768px){
+  .cont-title-block h2{font-size:1.5rem}
+}
+
+
+/* ══ CONTATTI – FIXED LAYOUT ════════════════════════════════════════════ */
+.cont-in-fixed{
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:start!important;
+}
+/* Logos row */
+.cont-logos-wrap{
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:20px;padding-bottom:18px;
+  border-bottom:1px solid #e8eef8;
+  flex-wrap:nowrap;
+}
+.cont-logo-img{height:38px!important;width:auto;object-fit:contain}
+.cont-logo-sep{width:1px;height:30px;background:#dde3ef;flex-shrink:0}
+
+/* Premium title */
+.cont-title-block{margin-bottom:20px}
+.cont-title-tag{
+  font-size:.68rem;font-weight:700;color:#f5a623;
+  text-transform:uppercase;letter-spacing:.15em;margin-bottom:6px;
+}
+.cont-title-block h2{
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:1.75rem;font-weight:800;
+  color:#1e3a6e;text-transform:uppercase;
+  letter-spacing:.04em;margin:0 0 10px;
+}
+.cont-title-line{width:48px;height:3px;background:#f5a623;border-radius:2px}
+
+/* Map – desktop only */
+.cont-map-wrap{
+  margin:16px 0 0;border-radius:10px;overflow:hidden;
+  box-shadow:0 3px 14px rgba(0,0,0,.1);
+  line-height:0;
+}
+@media(max-width:768px){
+  .cont-map-wrap{display:none!important}
+  .cont-in-fixed{grid-template-columns:1fr!important;gap:24px}
+  .cont-logos-wrap{justify-content:center}
+  .cont-title-block{text-align:center}
+  .cont-title-line{margin:0 auto}
+  .wa-btn-cont{width:100%;justify-content:center}
+}
+
+/* Form panel compact */
+@media(min-width:769px){
+  .form-panel{
+    padding:28px 26px!important;
+  }
+}
+.form-panel h3{
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:1.05rem;font-weight:800;
+  color:#fff;text-transform:uppercase;letter-spacing:.05em;
+  margin-bottom:4px;
+}
+.form-panel .form-sub{
+  font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:16px;
+}
+.form-panel .fg{margin-bottom:12px}
+.form-panel label{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:.05em}
+.form-panel input,.form-panel select,.form-panel textarea{
+  width:100%;padding:9px 12px;font-size:.84rem;
+  border-radius:6px;border:1.5px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.08);color:#fff;
+  font-family:'Roboto',sans-serif;
+  transition:border .2s,background .2s;box-sizing:border-box;
+}
+.form-panel input:focus,.form-panel select:focus,.form-panel textarea:focus{
+  border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.12);outline:none;
+}
+.form-panel input::placeholder,.form-panel textarea::placeholder{color:rgba(255,255,255,.35)}
+.form-panel select option{background:#1e3a6e;color:#fff}
+.form-panel .f-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+@media(max-width:600px){.form-panel .f-row{grid-template-columns:1fr}}
+.form-panel textarea{resize:none;rows:3}
+
+/* ══ MOBILE DROPDOWN – SMOOTH MAX-HEIGHT ════════════════════════════════ */
+.mnv-dropdown-body{
+  display:block!important;
+  max-height:0;overflow:hidden;opacity:0;
+  background:rgba(0,0,0,.18);
+  transition:max-height .3s cubic-bezier(.4,0,.2,1), opacity .25s ease;
+}
+.mnv-dropdown-body.open{
+  max-height:500px!important;
+  opacity:1!important;
+}
+.mnv-dropdown-toggle{
+  display:flex;align-items:center;justify-content:space-between;
+  width:100%;padding:14px 24px;font-size:.86rem;font-weight:700;
+  color:#fff;text-transform:uppercase;letter-spacing:.05em;
+  background:none;border:none;border-bottom:1px solid rgba(255,255,255,.07);
+  cursor:pointer;font-family:'Roboto',sans-serif;transition:background .15s;
+  box-sizing:border-box;
+}
+.mnv-dropdown-toggle:hover,.mnv-dropdown-toggle.open{
+  background:rgba(255,255,255,.06);color:#f5a623;
+}
+.mnv-dropdown-toggle svg{
+  transition:transform .28s;flex-shrink:0;
+}
+.mnv-dropdown-toggle.open svg{transform:rotate(180deg)}
+.mnv-dropdown-body a{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:11px 24px 11px 38px;font-size:.82rem;font-weight:600;
+  color:rgba(255,255,255,.82);text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  transition:color .15s,background .15s;
+  font-family:'Roboto',sans-serif;
+}
+.mnv-dropdown-body a:last-child{border-bottom:none}
+.mnv-dropdown-body a:hover{color:#f5a623;background:rgba(255,255,255,.04)}
+
+/* ══ WA MINI BUTTON (inline next to phone) ════════════════════════════ */
+.wa-mini-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  background:#25d366;color:#fff;
+  font-size:.72rem;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;
+  padding:4px 10px;border-radius:4px;
+  text-decoration:none;
+  transition:background .2s;
+  flex-shrink:0;
+}
+.wa-mini-btn:hover{background:#1ebe5d}
+.wa-mini-btn svg{fill:currentColor;flex-shrink:0}
+/* Remove old large WA button from contatti */
+.wa-btn-cont{display:none}
+
+/* ══ CHI SIAMO – IMAGE VERTICAL ALIGNMENT ══════════════════════════════ */
+.chi-siamo-img{
+  align-self:center;
+}
+.chi-siamo-img img{
+  max-height:400px;
+  width:100%;
+  object-fit:cover;
+}
+@media(max-width:768px){
+  .cs-pills{grid-template-columns:1fr 1fr}
+  .chi-siamo-img img{max-height:260px}
+  .cs-btns{flex-direction:column}
+  .cs-btns .cs-btn,.cs-btns .cs-btn-outline{width:100%;justify-content:center}
+}
+@media(max-width:480px){
+  .cs-pills{grid-template-columns:1fr}
 }

@@ -55,56 +55,62 @@ function closeMenu(){
   n.classList.remove('is-open');
   h.classList.remove('is-open');
   document.body.style.overflow='';
+  // Reset all dropdowns
+  document.querySelectorAll('.mnv-dropdown-toggle.open').forEach(function(b){
+    b.classList.remove('open');
+    var ob=b.nextElementSibling;
+    if(ob) ob.classList.remove('open');
+  });
   setTimeout(function(){if(!menuOpen)n.style.display='none';},350);
 }
 function toggleMenu(){menuOpen?closeMenu():openMenu();}
-document.addEventListener('DOMContentLoaded',function(){
-  var n=document.getElementById('mobnav');
-  if(n){n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu)});}
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menuOpen)closeMenu();});
-});
-
-// Close menu on link click — but NOT on dropdown toggle
-document.querySelectorAll('#mobnav a:not(.mnv-dropdown-toggle)').forEach(a=>a.addEventListener('click',function(){
-  if(this.closest('.mnv-dropdown-toggle'))return;
-  closeMenu();
-}));
-
-// Dropdown Persona nel menu mobile — gestione robusta
+// ── MOBILE MENU: LINKS + DROPDOWN ──
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.mnv-dropdown-toggle').forEach(function(toggle) {
-    toggle.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      var body = this.nextElementSibling;
-      var isOpen = this.classList.contains('open');
-      // Chiudi tutti gli altri dropdown aperti
-      document.querySelectorAll('.mnv-dropdown-toggle.open').forEach(function(other) {
-        if(other !== toggle) {
-          other.classList.remove('open');
-          if(other.nextElementSibling) other.nextElementSibling.classList.remove('open');
-        }
-      });
-      this.classList.toggle('open', !isOpen);
-      if(body) body.classList.toggle('open', !isOpen);
+  var mobnav = document.getElementById('mobnav');
+  if (!mobnav) return;
+
+  // 1. Close menu when any regular link is clicked (not dropdown toggle)
+  mobnav.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      // Regular links inside dropdown body → navigate AND close menu
+      // Dropdown toggle buttons are <button>, not <a>, so this is safe
+      closeMenu();
     });
   });
+
+  // 2. Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && menuOpen) closeMenu();
+  });
 });
 
-
+// ── DROPDOWN TOGGLE (called by onclick in HTML) ──
 function toggleDropdown(btn) {
   var body = btn.nextElementSibling;
+  if (!body || !body.classList.contains('mnv-dropdown-body')) return;
+
   var isOpen = btn.classList.contains('open');
-  // Chiudi tutti gli altri
-  document.querySelectorAll('.mnv-dropdown-toggle.open').forEach(function(b) {
-    if(b !== btn) {
-      b.classList.remove('open');
-      if(b.nextElementSibling) b.nextElementSibling.classList.remove('open');
+
+  // Close all other open dropdowns first
+  document.querySelectorAll('.mnv-dropdown-toggle.open').forEach(function(other) {
+    if (other !== btn) {
+      other.classList.remove('open');
+      var ob = other.nextElementSibling;
+      if (ob) ob.classList.remove('open');
     }
   });
+
+  // Toggle this one
   btn.classList.toggle('open', !isOpen);
-  if(body) body.classList.toggle('open', !isOpen);
+  body.classList.toggle('open', !isOpen);
 }
+
+
+
+
+
+
+
 
 // ── FORMSPREE SUCCESS ──
 // Formspree success message

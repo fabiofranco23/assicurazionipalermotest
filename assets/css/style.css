@@ -2284,3 +2284,78 @@ header{z-index:400!important;position:sticky!important;top:0}
   .cs2-h2{font-size:1.5rem}
   .rec-h2-hero{font-size:1.75rem}
 }
+
+
+/* ══ DICONO DI NOI – EYEBROW + HERO TITLE ══════════════════════════════ */
+.rec-eyebrow{
+  font-size:.72rem;font-weight:700;
+  color:#f5a623;text-transform:uppercase;
+  letter-spacing:.18em;margin-bottom:10px;
+  display:block;
+}
+.rec-h2-hero{
+  font-family:'Roboto Condensed',sans-serif!important;
+  font-size:3rem!important;font-weight:900!important;
+  color:#ffffff!important;text-transform:uppercase!important;
+  letter-spacing:.04em!important;margin:0 0 10px!important;
+  line-height:1!important;
+  text-shadow:0 2px 12px rgba(0,0,0,.18);
+}
+.rec-sub-blu{
+  font-size:.9rem;color:rgba(255,255,255,.7)!important;
+  margin:0;
+}
+
+/* ══ CAROUSEL ═══════════════════════════════════════════════════════════ */
+.rec-carousel-wrap{
+  position:relative;display:flex;align-items:center;
+  margin-top:36px;
+}
+.rec-track-outer{flex:1;overflow:hidden;border-radius:12px}
+.rec-track{display:flex;align-items:stretch;will-change:transform}
+.rec-track .rec-card-blu{
+  flex-shrink:0;box-sizing:border-box;margin:0 8px;border-radius:12px;
+}
+.rec-arrow{
+  flex-shrink:0;width:40px;height:40px;
+  background:rgba(255,255,255,.12);
+  border:1.5px solid rgba(255,255,255,.22);
+  border-radius:50%;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;
+  transition:background .2s,border-color .2s,transform .15s;
+}
+.rec-arrow:hover{background:rgba(255,255,255,.22);border-color:#f5a623;transform:scale(1.08)}
+.rec-arrow svg{stroke:currentColor}
+.rec-prev{margin-right:10px}
+.rec-next{margin-left:10px}
+.rec-dots{display:flex;justify-content:center;gap:7px;margin-top:22px}
+.rec-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(255,255,255,.25);border:none;cursor:pointer;
+  padding:0;transition:background .2s,transform .2s;
+}
+.rec-dot.active{background:#f5a623;transform:scale(1.2)}
+
+/* ══ WA MINI BUTTON – CLEAN ═════════════════════════════════════════════ */
+.wa-mini-btn{
+  display:inline-flex;align-items:center;
+  background:#1fa851;color:#fff!important;
+  font-size:.74rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:5px 12px;border-radius:5px;
+  text-decoration:none;transition:background .2s;
+}
+.wa-mini-btn:hover{background:#178a42}
+
+/* ══ BREATHING SPACE ════════════════════════════════════════════════════ */
+.section-divider-space{height:64px;background:#fff}
+
+@media(max-width:768px){
+  .rec-h2-hero{font-size:2.2rem!important}
+  .rec-arrow{width:34px;height:34px}
+  .section-divider-space{height:40px}
+}
+@media(max-width:480px){
+  .rec-h2-hero{font-size:1.8rem!important}
+}

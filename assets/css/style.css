@@ -2432,17 +2432,17 @@ header{z-index:400!important;position:sticky!important;top:0}
 
 
 /* ══ PAGE PREVIDENZA – PIP VANTAGGI MINI CARDS ══════════════════════════ */
+
+/* BASE (shared mobile+desktop) */
 .pip-vantaggi{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin:20px 0 0;
+  gap:14px;
+  margin:24px 0 0;
 }
 .pip-card{
   background:#f8faff;
   border:1.5px solid #e2e9f8;
-  border-radius:10px;
-  padding:16px 14px;
+  border-radius:12px;
   transition:transform .2s,box-shadow .2s,border-color .2s;
   cursor:default;
 }
@@ -2450,57 +2450,136 @@ header{z-index:400!important;position:sticky!important;top:0}
   transform:translateY(-3px);
   box-shadow:0 8px 24px rgba(30,58,110,.1);
   border-color:#f5a623;
+  background:#fffdf8;
 }
 .pip-card-icon{
-  width:40px;height:40px;border-radius:8px;
   background:#eef3fb;
+  border-radius:8px;
   display:flex;align-items:center;justify-content:center;
-  margin-bottom:10px;
   flex-shrink:0;
 }
 .pip-card-icon svg{stroke:#1e3a6e}
 .pip-card-title{
-  font-size:.82rem;font-weight:700;
-  color:#1e3a6e;margin-bottom:4px;
+  font-weight:700;color:#1e3a6e;
 }
-.pip-card-text{
-  font-size:.78rem;color:#6b7280;line-height:1.55;
-}
+.pip-card-text{color:#6b7280;line-height:1.55;}
 
-/* ══ STEPS GRID – 5 STEPS (3+2) ════════════════════════════════════════ */
-.steps-grid-5{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-}
-.steps-grid-5 .step-card:nth-child(4),
-.steps-grid-5 .step-card:nth-child(5){
-  /* 4th and 5th cards: 2-col row, centred */
-}
+/* ══ DESKTOP ONLY (≥769px) ════════════════════════════════════════════ */
 @media(min-width:769px){
-  .steps-grid-5{
+  /* PIP VANTAGGI: 3 per riga, card verticali con padding generoso */
+  .pip-vantaggi{
     grid-template-columns:repeat(3,1fr);
   }
-  /* Force last 2 into a centred 2-col subgrid */
-  .steps-grid-5 .step-card:nth-child(4){
-    grid-column:1;
+  .pip-card{
+    padding:24px 20px;
+    display:flex;
+    flex-direction:column;
+    gap:0;
   }
-  .steps-grid-5 .step-card:nth-child(5){
-    grid-column:2;
+  .pip-card-icon{
+    width:48px;height:48px;
+    margin-bottom:14px;
   }
-  /* Re-do as named areas */
+  .pip-card-title{
+    font-size:.88rem;margin-bottom:6px;
+  }
+  .pip-card-text{font-size:.8rem;}
+
+  /* STEPS: tutti e 5 su una riga, flex */
   .steps-grid-5{
-    grid-template-columns:repeat(6,1fr);
-    grid-template-rows:auto auto;
+    display:flex!important;
+    flex-direction:row!important;
+    gap:10px;
+    align-items:stretch;
   }
-  .steps-grid-5 .step-card:nth-child(1){ grid-column:1/3; }
-  .steps-grid-5 .step-card:nth-child(2){ grid-column:3/5; }
-  .steps-grid-5 .step-card:nth-child(3){ grid-column:5/7; }
-  .steps-grid-5 .step-card:nth-child(4){ grid-column:2/4; }
-  .steps-grid-5 .step-card:nth-child(5){ grid-column:4/6; }
+  .steps-grid-5 .step-card{
+    flex:1 1 0;
+    min-width:0;
+    grid-column:auto!important;
+    padding:22px 14px;
+  }
+  .steps-grid-5 .step-card p{
+    font-size:.78rem;
+    line-height:1.55;
+  }
+  .steps-grid-5 .step-card h3{
+    font-size:.88rem;
+    margin-bottom:8px;
+  }
+  .steps-grid-5 .step-num{
+    width:32px;height:32px;
+    font-size:.85rem;
+    margin:0 auto 12px;
+  }
+
+  /* HIGHLIGHT BOX: 55/45, stats come KPI */
+  .hl-grid{
+    display:grid;
+    grid-template-columns:55fr 45fr;
+    gap:40px;
+    align-items:center;
+  }
+  .hl-stats{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .hl-stats .stat-item{
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:10px;
+    padding:18px 20px;
+    text-align:center;
+  }
+  .hl-stats .stat-num{
+    font-size:2.4rem;
+  }
+  .hl-stats .stat-label{
+    font-size:.75rem;
+    margin-top:4px;
+    opacity:.8;
+  }
 }
 
-.step-card-gold{border-color:#f5a623!important;background:#fffcf0}
+/* ══ MOBILE (≤768px) — DO NOT CHANGE ══════════════════════════════════ */
+@media(max-width:768px){
+  .pip-vantaggi{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  .pip-card{
+    display:flex;align-items:flex-start;
+    gap:12px;padding:14px 12px;
+  }
+  .pip-card-icon{
+    width:38px;height:38px;flex-shrink:0;
+  }
+  .pip-card-title{font-size:.84rem;margin-bottom:3px;}
+  .pip-card-text{font-size:.78rem;}
+
+  .steps-grid-5{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:12px;
+  }
+  .steps-grid-5 .step-card{
+    grid-column:auto!important;
+    flex:none!important;
+  }
+
+  .hl-grid{grid-template-columns:1fr;gap:20px}
+  .hl-stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+}
+@media(min-width:480px) and (max-width:768px){
+  .pip-vantaggi{grid-template-columns:1fr 1fr;gap:10px}
+}
+
+/* ══ STEP GOLD ══════════════════════════════════════════════════════════ */
+.step-card-gold{border-color:#f5a623!important;background:#fffcf0!important}
 .step-num-gold{background:#f5a623!important;color:#1e3a6e!important}
 
 /* ══ HIGHLIGHT BOX GRID ════════════════════════════════════════════════ */

@@ -2668,3 +2668,79 @@ header{z-index:400!important;position:sticky!important;top:0}
 @media(max-width:480px){
   .sal-grid,.sal-grid-5{grid-template-columns:1fr}
 }
+
+
+/* ══ SANITARIA – WHY GRID ═══════════════════════════════════════════════ */
+.sal-why-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;margin-top:32px;
+}
+.sal-why-card{
+  background:#fff5f5;border:1.5px solid #f5c6cb;
+  border-radius:12px;padding:20px 18px;text-align:center;
+}
+.sal-why-card:last-child{background:#f0fff4;border-color:#c3e6cb}
+.sal-why-icon{display:flex;justify-content:center;margin-bottom:10px}
+.sal-why-val{font-family:'Roboto Condensed',sans-serif;font-size:1.3rem;font-weight:800;color:#1e3a6e;margin-bottom:4px}
+.sal-why-lbl{font-size:.78rem;color:#6b7280;line-height:1.5}
+
+/* ══ SANITARIA – COST GRID ══════════════════════════════════════════════ */
+.sal-cost-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;margin-top:8px;
+}
+.sal-cost-card{
+  background:#f8faff;border:1.5px solid #dde3ef;
+  border-radius:12px;padding:20px 18px;text-align:center;
+  transition:transform .2s,box-shadow .2s;
+}
+.sal-cost-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(30,58,110,.1)}
+.sal-cost-highlight{background:#f0fff4;border-color:#27ae60}
+.sal-cost-icon{display:flex;justify-content:center;margin-bottom:10px}
+.sal-cost-name{font-size:.83rem;font-weight:700;color:#1e3a6e;margin-bottom:4px}
+.sal-cost-price{font-family:'Roboto Condensed',sans-serif;font-size:1.4rem;font-weight:800;color:#1e3a6e}
+.sal-cost-note{font-size:.7rem;color:#9ca3af;margin-top:2px}
+
+/* ══ SANITARIA – TARGET GRID ════════════════════════════════════════════ */
+.sal-target-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;margin-top:8px;
+}
+.sal-target-card{
+  background:#f8faff;border:1.5px solid #e2e9f8;
+  border-radius:12px;padding:22px 18px;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.sal-target-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(30,58,110,.1);border-color:#1e3a6e}
+.sal-target-icon{width:52px;height:52px;border-radius:10px;background:#eef3fb;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.sal-target-card h3{font-size:.9rem;font-weight:700;color:#1e3a6e;margin-bottom:6px}
+.sal-target-card p{font-size:.8rem;color:#6b7280;line-height:1.6}
+
+/* ══ SANITARIA – FAQ ════════════════════════════════════════════════════ */
+.sal-faq{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.sal-faq-item{
+  border:1.5px solid #e2e9f8;border-radius:10px;
+  overflow:hidden;background:#fff;
+}
+.sal-faq-item summary{
+  padding:16px 20px;font-weight:700;font-size:.88rem;
+  color:#1e3a6e;cursor:pointer;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.sal-faq-item summary::-webkit-details-marker{display:none}
+.sal-faq-item summary::after{content:"＋";font-size:1.1rem;color:#27ae60;flex-shrink:0;margin-left:12px;transition:transform .2s}
+.sal-faq-item[open] summary::after{content:"－"}
+.sal-faq-item p{padding:0 20px 16px;font-size:.85rem;color:#4b5563;line-height:1.75;margin:0}
+
+/* ══ DESKTOP UPGRADES ═══════════════════════════════════════════════════ */
+@media(min-width:769px){
+  .sal-why-grid{grid-template-columns:repeat(5,1fr)}
+  .sal-cost-grid{grid-template-columns:repeat(3,1fr)}
+  .sal-target-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:480px){
+  .sal-why-grid,.sal-cost-grid,.sal-target-grid{grid-template-columns:1fr}
+}

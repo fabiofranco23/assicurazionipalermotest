@@ -2744,3 +2744,73 @@ header{z-index:400!important;position:sticky!important;top:0}
 @media(max-width:480px){
   .sal-why-grid,.sal-cost-grid,.sal-target-grid{grid-template-columns:1fr}
 }
+
+
+/* ══ SANITARIA – NEWS BOX MOBILE-SAFE ════════════════════════════════ */
+.sal-news-box{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:20px;align-items:center;
+  background:#fff;border-radius:12px;
+  padding:24px 28px;
+  box-shadow:0 3px 16px rgba(30,58,110,.08);
+  border-left:4px solid #27ae60;
+  box-sizing:border-box;overflow:hidden;
+}
+.sal-news-icon{
+  width:48px;height:48px;border-radius:50%;
+  background:#27ae6018;border:2px solid #27ae6040;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.sal-news-eyebrow{
+  font-size:.66rem;font-weight:700;color:#27ae60;
+  text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px;
+}
+.sal-news-title{
+  font-size:.95rem;font-weight:700;color:#1e3a6e;margin-bottom:4px;
+}
+.sal-news-sub{font-size:.82rem;color:#6b7280;line-height:1.5}
+.sal-news-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  background:#1e3a6e;color:#fff;
+  font-weight:700;font-size:.76rem;
+  text-transform:uppercase;letter-spacing:.06em;
+  padding:11px 18px;border-radius:6px;
+  text-decoration:none;white-space:nowrap;flex-shrink:0;
+  transition:background .2s;
+}
+.sal-news-btn:hover{background:#152d56}
+@media(max-width:680px){
+  .sal-news-box{
+    grid-template-columns:1fr;
+    gap:14px;padding:20px 18px;text-align:center;
+  }
+  .sal-news-icon{display:none}
+  .sal-news-btn{
+    justify-content:center;width:100%;
+    box-sizing:border-box;white-space:normal;
+  }
+}
+
+/* ══ SANITARIA – CTA BUTTONS ════════════════════════════════════════ */
+.sal-cta-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  background:#1e3a6e;color:#fff;
+  font-weight:700;font-size:.84rem;
+  text-transform:uppercase;letter-spacing:.07em;
+  padding:14px 28px;border-radius:8px;
+  text-decoration:none;
+  box-shadow:0 4px 16px rgba(30,58,110,.2);
+  transition:background .2s,transform .15s,box-shadow .2s;
+}
+.sal-cta-btn:hover{background:#152d56;transform:translateY(-1px);box-shadow:0 6px 20px rgba(30,58,110,.28)}
+.sal-cta-btn svg{stroke:currentColor;fill:none;flex-shrink:0}
+.sal-cta-green{background:#27ae60}
+.sal-cta-green:hover{background:#1e8e4e}
+@media(max-width:600px){
+  .sal-cta-btn{
+    width:100%;max-width:340px;justify-content:center;
+    padding:15px 20px;font-size:.82rem;
+  }
+}

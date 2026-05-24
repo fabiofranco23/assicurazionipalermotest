@@ -2307,14 +2307,27 @@ header{z-index:400!important;position:sticky!important;top:0}
 }
 
 /* ══ CAROUSEL ═══════════════════════════════════════════════════════════ */
+/* ══ CAROUSEL ═══════════════════════════════════════════════════════════ */
 .rec-carousel-wrap{
   position:relative;display:flex;align-items:center;
   margin-top:36px;
 }
-.rec-track-outer{flex:1;overflow:hidden;border-radius:12px}
-.rec-track{display:flex;align-items:stretch;will-change:transform}
+.rec-track-outer{
+  flex:1;
+  overflow:hidden;
+  /* On mobile: show overflow to create peek effect */
+}
+.rec-track{
+  display:flex;
+  align-items:stretch;
+  will-change:transform;
+  gap:0; /* gap handled in JS via margin-right */
+}
 .rec-track .rec-card-blu{
-  flex-shrink:0;box-sizing:border-box;margin:0 8px;border-radius:12px;
+  box-sizing:border-box;
+  flex-shrink:0;
+  border-radius:12px;
+  /* width set by JS */
 }
 .rec-arrow{
   flex-shrink:0;width:40px;height:40px;
@@ -2324,20 +2337,35 @@ header{z-index:400!important;position:sticky!important;top:0}
   display:flex;align-items:center;justify-content:center;
   color:#fff;
   transition:background .2s,border-color .2s,transform .15s;
+  z-index:2;
 }
 .rec-arrow:hover{background:rgba(255,255,255,.22);border-color:#f5a623;transform:scale(1.08)}
-.rec-arrow svg{stroke:currentColor}
-.rec-prev{margin-right:10px}
-.rec-next{margin-left:10px}
+.rec-arrow svg{stroke:currentColor;flex-shrink:0}
+.rec-prev{margin-right:12px}
+.rec-next{margin-left:12px}
+
+/* Dots */
 .rec-dots{display:flex;justify-content:center;gap:7px;margin-top:22px}
 .rec-dot{
   width:8px;height:8px;border-radius:50%;
   background:rgba(255,255,255,.25);border:none;cursor:pointer;
-  padding:0;transition:background .2s,transform .2s;
+  padding:0;transition:background .25s,width .25s,border-radius .25s;
 }
-.rec-dot.active{background:#f5a623;transform:scale(1.2)}
+.rec-dot.active{background:#f5a623;width:24px;border-radius:4px}
 
-/* ══ WA MINI BUTTON – CLEAN ═════════════════════════════════════════════ */
+/* Mobile: hide arrows, let swipe work, show peek */
+@media(max-width:599px){
+  .rec-arrow{display:none}
+  .rec-track-outer{
+    overflow:visible;
+    /* clip at wrap level */
+  }
+  .rec-carousel-wrap{overflow:hidden}
+  .rec-track .rec-card-blu{
+    padding:20px 18px;
+  }
+}
+
 .wa-mini-btn{
   display:inline-flex;align-items:center;
   background:#1fa851;color:#fff!important;
@@ -2378,7 +2406,8 @@ header{z-index:400!important;position:sticky!important;top:0}
 }
 .sede-card-img{
   position:relative;overflow:hidden;
-  height:220px;background:#e8eef8;
+  height:240px;background:#e8eef8;
+  border-radius:14px;
 }
 .sede-card-img img{
   width:100%;height:100%;object-fit:cover;
@@ -2395,17 +2424,7 @@ header{z-index:400!important;position:sticky!important;top:0}
   text-transform:uppercase;letter-spacing:.1em;
   padding:4px 10px;border-radius:4px;
 }
-.sede-card-body{
-  padding:14px 16px 16px;
-}
-.sede-card-title{
-  font-family:'Roboto Condensed',sans-serif;
-  font-size:.92rem;font-weight:700;
-  color:#1e3a6e;margin-bottom:3px;
-}
-.sede-card-sub{
-  font-size:.76rem;color:#6b7280;
-}
+
 @media(max-width:600px){
   .sede-gallery{grid-template-columns:1fr}
   .sede-card-img{height:180px}

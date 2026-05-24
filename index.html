@@ -1230,30 +1230,35 @@ RUI A000511322 (iscr. 05/01/2026)</p>
   var track = document.getElementById('recTrack');
   if(!track) return;
   var dotsEl = document.getElementById('recDots');
-  var cards, visible, total, cur = 0, autoT;
+  var cards, visible, total, cur = 0, autoT, isDown = false, startX = 0, scrollLeft = 0;
+  var outer = track.parentElement;
 
   function getVisible(){
-    return window.innerWidth >= 900 ? 3 : window.innerWidth >= 600 ? 2 : 1;
+    return window.innerWidth >= 960 ? 3 : window.innerWidth >= 600 ? 2 : 1;
   }
 
-  function init(){
-    cards = Array.from(track.children);
-    total = cards.length;
+  function getGap(){ return 16; }
+
+  function calcCardW(){
     visible = getVisible();
-    buildDots();
-    goTo(0, true);
-    startAuto();
+    var gap = getGap();
+    // On mobile (1 visible): show 88% width so next card peeks at 12%
+    if(visible === 1){
+      return outer.offsetWidth * 0.88;
+    }
+    return (outer.offsetWidth - gap * (visible - 1)) / visible;
   }
 
   function buildDots(){
     if(!dotsEl) return;
-    dotsEl.innerHTML='';
-    var pages = total - visible + 1;
-    for(var i=0;i<pages;i++){
+    dotsEl.innerHTML = '';
+    var pages = Math.max(1, total - visible + 1);
+    for(var i = 0; i < pages; i++){
       (function(idx){
         var d = document.createElement('button');
-        d.className='rec-dot';
-        d.addEventListener('click',function(){clearAuto();goTo(idx);startAuto();});
+        d.className = 'rec-dot' + (idx === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Recensione ' + (idx+1));
+        d.addEventListener('click', function(){ clearAuto(); goTo(idx); startAuto(); });
         dotsEl.appendChild(d);
       })(i);
     }
@@ -1266,40 +1271,66 @@ RUI A000511322 (iscr. 05/01/2026)</p>
     });
   }
 
-  function goTo(n, instant){
-    var pages = total - visible + 1;
-    cur = Math.max(0, Math.min(n, pages-1));
-    var cardW = track.parentElement.offsetWidth / visible;
-    var offset = cur * cardW;
-    track.style.transition = instant ? 'none' : 'transform .45s cubic-bezier(.4,0,.2,1)';
-    track.style.transform = 'translateX(-' + offset + 'px)';
-    Array.from(track.children).forEach(function(c,i){
+  function layoutCards(){
+    var cardW = calcCardW();
+    var gap = getGap();
+    Array.from(track.children).forEach(function(c){
       c.style.width = cardW + 'px';
       c.style.minWidth = cardW + 'px';
+      c.style.marginRight = gap + 'px';
     });
+    track.style.gap = '0';
+  }
+
+  function goTo(n, instant){
+    total = track.children.length;
+    visible = getVisible();
+    var pages = Math.max(1, total - visible + 1);
+    cur = Math.max(0, Math.min(n, pages - 1));
+    var cardW = calcCardW();
+    var gap = getGap();
+    var offset = cur * (cardW + gap);
+    track.style.transition = instant ? 'none' : 'transform .42s cubic-bezier(.4,0,.2,1)';
+    track.style.transform = 'translateX(-' + offset + 'px)';
     updateDots();
   }
 
-  function startAuto(){ autoT = setTimeout(function(){ recSlide(1); startAuto(); }, 5000); }
+  function startAuto(){ autoT = setTimeout(function(){
+    var pages = Math.max(1, total - visible + 1);
+    goTo(cur >= pages - 1 ? 0 : cur + 1);
+    startAuto();
+  }, 6000); }
   function clearAuto(){ clearTimeout(autoT); }
 
   window.recSlide = function(dir){
     clearAuto();
-    goTo(cur + dir);
+    var pages = Math.max(1, total - visible + 1);
+    goTo(cur >= pages - 1 && dir > 0 ? 0 : cur + dir);
     startAuto();
   };
 
-  // Swipe
-  var startX = null;
-  track.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;},{ passive:true });
-  track.addEventListener('touchend',function(e){
-    if(startX===null) return;
-    var dx = e.changedTouches[0].clientX - startX;
-    if(Math.abs(dx)>40){ clearAuto(); goTo(cur + (dx<0?1:-1)); startAuto(); }
-    startX=null;
-  },{ passive:true });
+  function init(){
+    total = track.children.length;
+    layoutCards();
+    buildDots();
+    goTo(0, true);
+    startAuto();
+  }
 
-  window.addEventListener('resize', function(){ visible=getVisible(); buildDots(); goTo(cur, true); });
+  // Touch swipe
+  outer.addEventListener('touchstart', function(e){
+    clearAuto(); startX = e.touches[0].clientX;
+  }, {passive:true});
+  outer.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx) > 36) recSlide(dx < 0 ? 1 : -1);
+    else startAuto();
+  }, {passive:true});
+
+  window.addEventListener('resize', function(){
+    clearAuto(); layoutCards(); buildDots(); goTo(cur, true); startAuto();
+  }, {passive:true});
+
   init();
 })();
 </script>

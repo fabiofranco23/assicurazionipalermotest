@@ -2613,3 +2613,58 @@ header{z-index:400!important;position:sticky!important;top:0}
 @media(min-width:600px) and (max-width:768px){
   .pip-vantaggi{grid-template-columns:1fr 1fr}
 }
+
+
+/* ══ SANITARIA – SAL GRID MINI CARDS ════════════════════════════════════ */
+.sal-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin:20px 0 0;
+}
+.sal-grid-5{
+  grid-template-columns:repeat(2,1fr);
+}
+.sal-card{
+  background:#f8fffe;
+  border:1.5px solid #c8ecd8;
+  border-radius:10px;
+  padding:14px 14px 14px 14px;
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+  cursor:default;
+}
+.sal-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 18px rgba(39,174,96,.12);
+  border-color:#27ae60;
+}
+.sal-card-icon{
+  width:40px;height:40px;
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.sal-card-title{
+  font-size:.83rem;font-weight:700;
+  color:#1e3a6e;margin-bottom:3px;
+}
+.sal-card-text{
+  font-size:.76rem;color:#6b7280;line-height:1.5;
+}
+
+/* Desktop: 3 per riga */
+@media(min-width:769px){
+  .sal-grid{grid-template-columns:repeat(3,1fr);gap:12px}
+  .sal-grid-5{grid-template-columns:repeat(3,1fr)}
+  .sal-card{padding:16px 14px}
+  .sal-card-icon{width:44px;height:44px}
+  .sal-card-title{font-size:.85rem}
+  .sal-card-text{font-size:.78rem}
+}
+/* Mobile: 1 per riga */
+@media(max-width:480px){
+  .sal-grid,.sal-grid-5{grid-template-columns:1fr}
+}

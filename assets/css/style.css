@@ -3006,48 +3006,41 @@ header{z-index:400!important;position:sticky!important;top:0}
   .inf-faq-item p{padding:0 16px 14px;font-size:.82rem}
 }
 
-/* ══ SANITARIA – unisalute 1.jpg DESKTOP FIX ════════════════════════════ */
+/* ══ SANITARIA – coperture col-img: HIDE ON DESKTOP ══════════════════ */
 @media(min-width:769px){
-  /* col-img in coperture section: show full image, no crop */
+  /* Make two-cols in coperture single-column: text full width */
+  .sal1-twocols{
+    display:block !important;
+    /* Remove grid so col-text takes full width */
+  }
+  .sal1-twocols .col-text{
+    max-width:100% !important;
+    width:100% !important;
+  }
+  /* Completely hide the image column on desktop */
   .col-img-sal1{
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display:none !important;
   }
-  .sal1-img{
-    width:100%;
-    height:auto !important;
-    max-height:460px !important;
-    object-fit:contain !important;  /* show full image, no zoom/crop */
-    border-radius:14px;
-    box-shadow:0 8px 32px rgba(30,58,110,.15);
-    background:#f8faff;            /* subtle bg so contain looks clean */
-    padding:8px;
-  }
-  /* Inline image in perche section: moderate size, well contained */
-  .sal1-inline-img{
-    object-fit:contain !important;
-    max-height:320px !important;
-    background:#f8faff;
-    padding:6px;
-    border-radius:10px;
-  }
-}
-
-
-/* ══ SANITARIA – sal1-inline-wrap: hide on desktop, margin fix mobile ══ */
-@media(min-width:769px){
-  /* Hide the standalone unisalute 1.jpg above "Quanto costano" on desktop */
+  /* Also hide the standalone inline image above costi */
   .sal1-inline-wrap{
     display:none !important;
   }
+  /* UniSalute section image: well proportioned */
+  .us-main-img{
+    width:100%;
+    min-height:360px;
+    max-height:480px;
+    object-fit:cover;
+    border-radius:10px;
+    display:block;
+  }
 }
+
+/* ══ SANITARIA – mobile: reduce top space on inline image ══════════════ */
 @media(max-width:768px){
-  /* Reduce top space on mobile inline image */
   .sal1-inline-wrap{
     margin-top:4px !important;
   }
-  /* Also tighten the perche section spacing above the image */
   #perche{
     padding-bottom:16px !important;
   }

@@ -3007,7 +3007,7 @@ header{z-index:400!important;position:sticky!important;top:0}
 }
 
 /* ══ SANITARIA – coperture col-img: HIDE ON DESKTOP ══════════════════ */
-@media(min-width:769px){
+@media(min-width:992px){
   /* Hide the ENTIRE coperture section on desktop */
   .sal-coperture-section{
     display:none !important;

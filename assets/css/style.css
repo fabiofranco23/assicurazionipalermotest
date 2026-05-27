@@ -2920,3 +2920,116 @@ header{z-index:400!important;position:sticky!important;top:0}
     font-size:1.6rem !important;
   }
 }
+
+
+/* ══ INFORTUNI – STANDALONE IMAGE: hide on desktop ══════════════════════ */
+@media(min-width:769px){
+  .inf-img-standalone{ display:none }
+}
+
+/* ══ INFORTUNI – UNISALUTE CARD (mobile-first layout) ═══════════════════ */
+.inf-us-card{
+  background:#fff;border-radius:14px;
+  padding:28px 28px;
+  box-shadow:0 3px 16px rgba(30,58,110,.08);
+  border-left:4px solid #1e3a6e;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:24px;align-items:center;
+}
+.inf-us-icon{
+  width:56px;height:56px;border-radius:50%;
+  background:#eef3fb;border:2px solid #c5d6e8;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.inf-us-tag{
+  font-size:.68rem;font-weight:700;color:#1e3a6e;
+  text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px;
+}
+.inf-us-title{
+  font-size:1rem;font-weight:700;color:#1e3a6e;margin-bottom:6px;
+}
+.inf-us-text{
+  font-size:.87rem;color:#4b5563;line-height:1.65;
+}
+.inf-us-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#1e3a6e;color:#fff;
+  font-weight:700;font-size:.78rem;
+  text-transform:uppercase;letter-spacing:.07em;
+  padding:12px 20px;border-radius:6px;
+  text-decoration:none;white-space:nowrap;flex-shrink:0;
+  transition:background .2s;
+}
+.inf-us-btn:hover{background:#152d56}
+.inf-us-btn svg{stroke:currentColor;fill:none}
+
+@media(max-width:680px){
+  .inf-us-card{
+    grid-template-columns:1fr;
+    gap:16px;
+    padding:22px 18px;
+  }
+  .inf-us-icon{display:none}
+  .inf-us-btn{
+    width:100%;justify-content:center;
+    box-sizing:border-box;
+    white-space:normal;text-align:center;
+  }
+}
+
+/* ══ INFORTUNI – FAQ ═════════════════════════════════════════════════════ */
+.inf-faq{display:flex;flex-direction:column;gap:8px;margin-top:28px}
+.inf-faq-item{
+  border:1.5px solid #e2e9f8;border-radius:10px;
+  background:#fff;overflow:hidden;
+}
+.inf-faq-item summary{
+  padding:16px 20px;font-weight:700;font-size:.88rem;
+  color:#1e3a6e;cursor:pointer;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;
+  user-select:none;
+}
+.inf-faq-item summary::-webkit-details-marker{display:none}
+.inf-faq-item summary::after{
+  content:"＋";font-size:1.1rem;color:#f5a623;
+  flex-shrink:0;margin-left:12px;
+}
+.inf-faq-item[open] summary::after{content:"－"}
+.inf-faq-item p{
+  padding:0 20px 16px;font-size:.85rem;
+  color:#4b5563;line-height:1.78;margin:0;
+}
+@media(max-width:480px){
+  .inf-faq-item summary{font-size:.83rem;padding:14px 16px}
+  .inf-faq-item p{padding:0 16px 14px;font-size:.82rem}
+}
+
+/* ══ SANITARIA – unisalute 1.jpg DESKTOP FIX ════════════════════════════ */
+@media(min-width:769px){
+  /* col-img in coperture section: show full image, no crop */
+  .col-img-sal1{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .sal1-img{
+    width:100%;
+    height:auto !important;
+    max-height:460px !important;
+    object-fit:contain !important;  /* show full image, no zoom/crop */
+    border-radius:14px;
+    box-shadow:0 8px 32px rgba(30,58,110,.15);
+    background:#f8faff;            /* subtle bg so contain looks clean */
+    padding:8px;
+  }
+  /* Inline image in perche section: moderate size, well contained */
+  .sal1-inline-img{
+    object-fit:contain !important;
+    max-height:320px !important;
+    background:#f8faff;
+    padding:6px;
+    border-radius:10px;
+  }
+}

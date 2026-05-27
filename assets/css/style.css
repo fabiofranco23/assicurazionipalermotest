@@ -2814,3 +2814,109 @@ header{z-index:400!important;position:sticky!important;top:0}
     padding:15px 20px;font-size:.82rem;
   }
 }
+
+
+/* ══ INFORTUNI – EMOTIONAL WHY GRID ════════════════════════════════════ */
+.inf-why-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;margin-top:32px;
+}
+.inf-why-card{
+  background:#f8faff;border:1.5px solid #e2e9f8;
+  border-radius:12px;padding:22px 18px;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+  cursor:default;
+}
+.inf-why-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(30,58,110,.1);border-color:#1e3a6e}
+.inf-why-icon{width:48px;height:48px;border-radius:10px;background:#eef3fb;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.inf-why-title{font-size:.87rem;font-weight:700;color:#1e3a6e;margin-bottom:5px}
+.inf-why-text{font-size:.78rem;color:#6b7280;line-height:1.6}
+
+/* ══ INFORTUNI – TARGET GRID ════════════════════════════════════════════ */
+.inf-target-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;margin-top:8px;
+}
+.inf-target-card{
+  background:#f8faff;border:1.5px solid #e2e9f8;
+  border-radius:12px;padding:22px 18px;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.inf-target-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(30,58,110,.1);border-color:#f5a623}
+.inf-target-icon{width:52px;height:52px;border-radius:10px;background:#eef3fb;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.inf-target-card h3{font-size:.88rem;font-weight:700;color:#1e3a6e;margin-bottom:7px}
+.inf-target-card p{font-size:.8rem;color:#6b7280;line-height:1.6}
+
+/* ══ RESPONSIVE ════════════════════════════════════════════════════════ */
+@media(max-width:768px){
+  .inf-why-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .inf-target-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .inf-why-card,.inf-target-card{padding:16px 14px}
+  .inf-why-icon,.inf-target-icon{width:40px;height:40px}
+}
+@media(max-width:480px){
+  .inf-why-grid,.inf-target-grid{grid-template-columns:1fr}
+}
+
+
+/* ══ SANITARIA – SAL-GRID-6 (DESKTOP ONLY) ════════════════════════════ */
+/* 6-card grid inside unisalute col-text */
+.sal-grid-6{
+  display:grid;
+  gap:10px;
+  margin:20px 0 0;
+  /* Mobile: 2 col (from existing .sal-grid rule) */
+  grid-template-columns:repeat(2,1fr);
+}
+
+/* Vertical card layout: icon top, title, text below */
+.sal-card-v{
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  gap:0 !important;
+  padding:14px 12px !important;
+}
+.sal-card-v .sal-card-icon{
+  margin-bottom:8px !important;
+  flex-shrink:0;
+}
+.sal-card-v .sal-card-title{
+  font-weight:700;
+  margin-bottom:4px;
+}
+
+/* Desktop: 3 per row in a narrow col-text context */
+@media(min-width:769px){
+  .sal-grid-6{
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+  }
+  .sal-card-v{
+    padding:14px 12px !important;
+  }
+
+  /* Make unisalute 2.jpg image larger on desktop */
+  .us-main-img{
+    width:100%;
+    height:auto;
+    min-height:360px;
+    max-height:480px;
+    object-fit:cover;
+    border-radius:10px;
+    display:block;
+  }
+}
+
+/* Mobile welfare stat: prevent overflow */
+@media(max-width:600px){
+  .stats-row .stat-label{
+    font-size:.68rem !important;
+    word-break:break-word;
+    hyphens:auto;
+  }
+  .stats-row .stat-num{
+    font-size:1.6rem !important;
+  }
+}

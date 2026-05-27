@@ -3033,3 +3033,22 @@ header{z-index:400!important;position:sticky!important;top:0}
     border-radius:10px;
   }
 }
+
+
+/* ══ SANITARIA – sal1-inline-wrap: hide on desktop, margin fix mobile ══ */
+@media(min-width:769px){
+  /* Hide the standalone unisalute 1.jpg above "Quanto costano" on desktop */
+  .sal1-inline-wrap{
+    display:none !important;
+  }
+}
+@media(max-width:768px){
+  /* Reduce top space on mobile inline image */
+  .sal1-inline-wrap{
+    margin-top:4px !important;
+  }
+  /* Also tighten the perche section spacing above the image */
+  #perche{
+    padding-bottom:16px !important;
+  }
+}

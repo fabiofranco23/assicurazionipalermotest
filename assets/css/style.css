@@ -3008,21 +3008,8 @@ header{z-index:400!important;position:sticky!important;top:0}
 
 /* ══ SANITARIA – coperture col-img: HIDE ON DESKTOP ══════════════════ */
 @media(min-width:769px){
-  /* Make two-cols in coperture single-column: text full width */
-  .sal1-twocols{
-    display:block !important;
-    /* Remove grid so col-text takes full width */
-  }
-  .sal1-twocols .col-text{
-    max-width:100% !important;
-    width:100% !important;
-  }
-  /* Completely hide the image column on desktop */
-  .col-img-sal1{
-    display:none !important;
-  }
-  /* Also hide the standalone inline image above costi */
-  .sal1-inline-wrap{
+  /* Hide the ENTIRE coperture section on desktop */
+  .sal-coperture-section{
     display:none !important;
   }
   /* UniSalute section image: well proportioned */

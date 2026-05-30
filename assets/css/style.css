@@ -3125,3 +3125,25 @@ header{z-index:400!important;position:sticky!important;top:0}
     grid-template-columns:1fr !important;
   }
 }
+
+
+/* ══ TOPBAR – SOCIAL ICONS ══════════════════════════════════════════════ */
+.t-social{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;
+  border-radius:5px;
+  color:rgba(255,255,255,.75);
+  transition:color .18s,background .18s;
+  text-decoration:none;
+}
+.t-social:hover{
+  color:#fff;
+  background:rgba(255,255,255,.12);
+}
+.t-social svg{
+  display:block;flex-shrink:0;
+}
+
+@media(max-width:768px){
+  .t-social{width:24px;height:24px}
+}
